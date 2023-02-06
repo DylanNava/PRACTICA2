@@ -14,6 +14,23 @@ public:
     void setDieta(const string &value);
 
     void imprimirDieta(const string &value);
+
+    friend Mamifero& operator +(Mamifero &x, Mamifero &y){
+        x.nombre=x.nombre+y.nombre;
+        x.dieta=x.dieta+y.dieta;
+
+        return x;
+    }
+    friend ostream& operator<<(ostream& os, Mamifero ms){
+        os<<ms.nombre<<" "<<ms.dieta<<endl;
+        return os;
+    }
+
+    Mamifero& operator=(Mamifero &x){
+        nombre=x.nombre;
+        return *this;
+    }
+
 };
 class Felino:public Mamifero{
 private:
